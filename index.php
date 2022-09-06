@@ -1,7 +1,13 @@
 <?php
-define("ROOT",__DIR__);
+define ("ROOT", __DIR__);
 require_once ROOT . "/system/autoloader.php";
-$router = new Router();
-
-$user=new Users();
-$helper= new SQLHelper($user);
+try {
+    $db= new DB() ;
+    $router = new Router();
+    $router->run();
+} catch (Exception $e) {
+    $msg = $e->getMessage();
+    $code = $e->getCode();
+    $errorCtrl->ExceptionHandler($code,$msg);
+    
+}

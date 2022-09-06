@@ -4,7 +4,7 @@ abstract class Controller{
     protected $route;
     protected $model;
     
-    function __construct()
+    protected function __construct()
     {
         
     }

@@ -1,13 +1,16 @@
 <?php 
 class HelloCtrl extends Controller{
+    
     function __construct()
     {
         
+        $this->model=new User;
     }
 
-    public function helloPeople(){
-            echo "hello people " ; 
-            require_once ROOT . "views/home.php";
+    public function run(){
+       $scope= $this->model->hello();
+       
+            require_once ROOT . "\\views\\hello.php";
     }
 
 }
