@@ -1,16 +1,15 @@
-<?php 
-class ErrorCtrl {
-    private $code ;
-    private $message; 
-    function __construct()
+<?php
+class ErrorCtrl
+{
+    public function exceptionHandler($exception)
     {
-        
+        $msg = $exception->getMessage();
+        $code = $exception->getCode();
+        $this->displayError($msg, $code);
     }
-    public function ExceptionHandler($code,$message){
-        $scope=["code" => $code,
-                "message"=> $message,                  
-                ];
-                
-                require_once ROOT . "/views/error.php";
+
+    public function displayError($message, $code)
+    {
+        require_once ROOT . "/views/error.php";
     }
 }

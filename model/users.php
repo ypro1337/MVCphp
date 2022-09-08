@@ -17,7 +17,12 @@ class User extends Model
             return $scope ;
         }
         else {
-            echo "no users";
+           return [];
         }
+    }
+
+    public function News()
+    {
+        return [];
     }
 }
